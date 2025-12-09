@@ -1,0 +1,46 @@
+@model ASS.ViewModels.CategoryViewModel
+
+<h2>@Model.CategoryName</h2>
+
+<div class="row">
+    @foreach (var item in Model.Foods!.Take(5))
+    {
+        <div class="col-md-2 mb-3">
+            <div class="card">
+                <img src="@item.Image" class="card-img-top" />
+                <div class="card-body">
+                    <h6>@item.Name</h6>
+                    <p>@item.Price VNĐ</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<hr />
+
+<div class="row">
+    @foreach (var item in Model.Foods!.Skip(5))
+    {
+        <div class="col-md-2 mb-3">
+            <div class="card">
+                <img src="@item.Image" class="card-img-top" />
+                <div class="card-body">
+                    <h6>@item.Name</h6>
+                    <p>@item.Price VNĐ</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<nav>
+    <ul class="pagination">
+        @for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
+                <a class="page-link" href="/Home/Category?id=@Model.CategoryId&page=@i">@i</a>
+            </li>
+        }
+    </ul>
+</nav>

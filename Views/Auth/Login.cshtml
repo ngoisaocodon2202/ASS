@@ -1,0 +1,22 @@
+@model ASS.ViewModels.LoginViewModel
+
+<h2 class="text-center mb-4">Đăng Nhập</h2>
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+
+        <form method="post">
+
+            <label>Email (Gmail)</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
+            <label class="mt-2">Mật khẩu</label>
+            <input asp-for="Password" type="password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <button type="submit" class="btn btn-primary w-100 mt-3">Đăng nhập</button>
+        </form>
+
+    </div>
+</div>

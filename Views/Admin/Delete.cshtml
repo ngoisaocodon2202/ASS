@@ -1,0 +1,10 @@
+@model ASS.Models.Food
+
+<h2>Xóa món ăn</h2>
+
+<p>Bạn có chắc muốn xóa món: <strong>@Model.Name</strong> ?</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a href="/Admin/Index" class="btn btn-secondary">Hủy</a>
+</form>

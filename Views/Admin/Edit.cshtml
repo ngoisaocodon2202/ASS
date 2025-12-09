@@ -1,0 +1,36 @@
+@model ASS.Models.Food
+
+<h2>Sửa món ăn</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label>Tên món</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Ảnh</label>
+        <input asp-for="Image" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Giá</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Danh mục</label>
+        <select asp-for="CategoryId" class="form-control">
+            @foreach (var c in ViewBag.Categories)
+            {
+                <option value="@c.Id" selected="@(c.Id == Model.CategoryId)">
+                @c.Name
+                </option>
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Cập nhật</button>
+</form>

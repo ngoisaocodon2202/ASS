@@ -1,0 +1,33 @@
+﻿@model ASS.ViewModels.HomeViewModel
+
+<h2 class="mb-4 text-center">FastFood Store</h2>
+
+<!-- BANNER -->
+<div class="row mb-4">
+    @foreach (var b in Model.Banners!)
+    {
+        <div class="col-md-4">
+            <img src="@b.Image" class="img-fluid rounded" />
+            <h5 class="mt-2 text-center">@b.Title</h5>
+        </div>
+    }
+</div>
+
+<hr />
+
+<h3 class="mb-3">Món ăn nổi bật</h3>
+
+<div class="row">
+    @foreach (var f in Model.Foods!.Take(8))
+    {
+        <div class="col-md-3 mb-3">
+            <div class="card food-card">
+                <img src="@f.Image" class="card-img-top" />
+                <div class="card-body">
+                    <h6>@f.Name</h6>
+                    <p>@f.Price VNĐ</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

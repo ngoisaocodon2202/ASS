@@ -1,0 +1,44 @@
+@model List<ASS.Models.Food>
+
+<h2>Quản lý món ăn</h2>
+
+<a href="/Admin/Create" class="btn btn-primary mb-3">Thêm món ăn</a>
+
+<table class="table table-hover table-bordered text-center">
+    <thead class="table-dark">
+        <tr>
+            <th>Ảnh</th>
+            <th>Tên món</th>
+            <th>Giá</th>
+            <th>Danh mục</th>
+            <th style="width:160px">Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model)
+        {
+            <tr>
+                <td><img src="@f.Image" width="80" class="rounded" /></td>
+                <td>@f.Name</td>
+                <td>@f.Price VNĐ</td>
+                <td>@f.Category?.Name</td>
+                <td>
+                    <a href="/Admin/Edit/@f.Id" class="btn btn-warning btn-sm">Sửa</a>
+                    <a href="/Admin/Delete/@f.Id" class="btn btn-danger btn-sm">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- PAGING -->
+<nav>
+    <ul class="pagination">
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <li class="page-item @(ViewBag.CurrentPage == i ? "active" : "")">
+                <a class="page-link" href="/Admin/Index?page=@i">@i</a>
+            </li>
+        }
+    </ul>
+</nav>
