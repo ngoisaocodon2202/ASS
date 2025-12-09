@@ -2,6 +2,6 @@ services:
   - type: web
     name: ASS
     env: dotnet
+    plan: free
     buildCommand: "dotnet publish -c Release -o out"
     startCommand: "dotnet out/ASS.dll --urls=http://0.0.0.0:$PORT"
-    plan: free
